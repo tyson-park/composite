@@ -2,18 +2,9 @@ import axios from 'axios';
 import { load } from 'cheerio';
 import { parseDate } from '@/lib/date_utils';
 
-// Function to introduce delay
-const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+import type { ScrapedData } from '@/types/interfaces';
 
-export interface ScrapedData {
-  stock_name: string;
-  stock_code: string;
-  report_title: string;
-  report_url: string;
-  securities_firm: string;
-  report_date: string | null;
-  views: number;
-}
+const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
 async function scrape_pages(base_url: string, start_page = 1, max_pages = 10, delay_time = 1000): Promise<ScrapedData[]> {
   const all_data: ScrapedData[] = [];

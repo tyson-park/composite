@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Layout from "../layout";
 
 export default function SummarizePage() {
   const [files, setFiles] = useState<File[]>([]);
@@ -63,14 +64,16 @@ export default function SummarizePage() {
   };
 
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">PDF Summarizer</h1>
-      <input type="file" multiple onChange={handleFileChange} className="mb-4" />
-      <button onClick={handleSummarize} className="bg-blue-500 text-white px-4 py-2 rounded">
-        Summarize
-      </button>
-      {error && <p className="text-red-500 mt-4">{error}</p>}
-      <div className="mt-4" dangerouslySetInnerHTML={{ __html: summaryHTML }} />
-    </div>
+    <Layout>
+      <div className="p-4">
+        <h1 className="text-2xl font-bold mb-4">PDF Summarizer</h1>
+        <input type="file" multiple onChange={handleFileChange} className="mb-4" />
+        <button onClick={handleSummarize} className="bg-blue-500 text-white px-4 py-2 rounded">
+          Summarize
+        </button>
+        {error && <p className="text-red-500 mt-4">{error}</p>}
+        <div className="mt-4" dangerouslySetInnerHTML={{ __html: summaryHTML }} />
+      </div>
+    </Layout>
   );
 }

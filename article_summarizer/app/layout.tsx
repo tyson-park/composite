@@ -5,12 +5,7 @@ import Footer from '@/components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata = {
-  title: 'Mobile Web App',
-  description: 'A simple mobile-friendly web application',
-}
-
-export default function RootLayout({
+export default function Layout({
   children,
 }: {
   children: React.ReactNode

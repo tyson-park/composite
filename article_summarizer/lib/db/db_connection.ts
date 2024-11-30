@@ -9,7 +9,7 @@ const timeoutPromise = new Promise<void>((_, reject) => {
   setTimeout(() => reject(new Error('Query timeout')), timeout);
 });
 
-export const execute_query = async (query: string, values: any[], client:PoolClient): Promise<void> => {
+export const execute_query = async (query: string, values: unknown[], client:PoolClient): Promise<void> => {
   try {
       await Promise.race([
       client.query(query, values),
